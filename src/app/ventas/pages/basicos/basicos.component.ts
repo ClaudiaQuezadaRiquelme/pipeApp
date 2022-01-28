@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicosComponent implements OnInit {
 
+  nombreCompleto: string = 'cLau MIau';
+
+  fecha: Date = new Date(); // día de hoy
+
   constructor() { }
 
   ngOnInit(): void {
