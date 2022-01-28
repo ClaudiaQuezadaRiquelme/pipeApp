@@ -10,6 +10,12 @@ export class NoComunesComponent implements OnInit {
   //i18nSelect
   nombre: string = "Clau Miaua";
   genero: string = 'femenino';
+  nombres = [
+    { nombre: 'Gatuna', genero: 'femenino'},
+    { nombre: 'Oso', genero: 'masculino'},
+    { nombre: 'Caracol', genero: 'neutro'},
+    { nombre: 'Pelusa', genero: 'femenino'},
+  ]
 
   invitacionMapa = {
     'masculino': 'invitarlo',
@@ -31,4 +37,19 @@ export class NoComunesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cambiarNombre() {
+    const max = this.nombres.length;
+    const min = 0;
+    const nombreActual = this.nombre;
+    let randomIndex = 0;
+    do {
+      randomIndex = Math.floor(Math.random() * (max - min)) + min;
+    } while (nombreActual === this.nombres[randomIndex].nombre);
+    this.nombre = this.nombres[randomIndex].nombre;
+    this.genero = this.nombres[randomIndex].genero;
+  }
+
+  eliminarCliente() {
+    this.clientes.pop();
+  }
 }
