@@ -6,6 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./no-comunes.component.css']
 })
 export class NoComunesComponent implements OnInit {
+  nombre: string = "Clau Miaua";
+  genero: string = 'femenino';
+
+  invitacionMapa = {
+    'masculino': 'invitarlo',
+    'femenino': 'invitarla',
+    'neutro': 'invitarle'
+  }
 
   constructor() { }
 
