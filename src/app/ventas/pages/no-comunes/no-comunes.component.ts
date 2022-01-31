@@ -52,4 +52,11 @@ export class NoComunesComponent implements OnInit {
   eliminarCliente() {
     this.clientes.pop();
   }
+
+  // KeyValue Pipe
+  persona = {
+    nombre: 'Clau',
+    edad: 35,
+    direccion: 'Ottawa, Canadá'
+  }
 }
