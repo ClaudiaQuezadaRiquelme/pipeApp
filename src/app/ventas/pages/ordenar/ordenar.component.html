@@ -2,23 +2,74 @@
     <h1>Pipes Personalizados</h1>
     <p>Pipes creados por nosotros.</p>
 </div>
-<div class="grid">
-    <div class="col md:col-6">
-        <p-fieldset legend="Mayusculas Pipe" [toggleable]="true">
-            <b>Mayúsculas</b>
-            <p>'Hola Mundo' | mayusculas</p>
-            <pre>{{ 'Hola Mundo' | mayusculas }}</pre>
-            <br>
-            <b>Mayúsculas con variables</b>
-            <p>'Hola Mundo' | mayusculas: false</p>
-            <pre>{{ 'Hola Mundo' | mayusculas: false }}</pre>
-            <b>Toggle</b>
-            <p>'Come sandías' | mayusculas: enMayusculas</p>
-            <pre>{{ 'Come sandías' | mayusculas: enMayusculas }}</pre>
-            <button pButton type="button"
-                    class="p-button-rounded p-button-help" 
-                    label="Toggle" 
-                    (click)="toggleEnMayusculas();"></button>
-        </p-fieldset>
+
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        
     </div>
+    
+    <div class="p-toolbar-group-right">
+        <button pButton class="mr-1"
+                icon="pi pi-sort"
+                label="por nombre"></button>
+
+        <button pButton class="mr-1 p-button-success"
+                icon="pi pi-sort"
+                label="valores"></button>
+
+        <button pButton class="mr-1 p-button-help"
+                icon="pi pi-sort"
+                label="por color"></button>
+    </div>
+</p-toolbar>
+
+<div class="grid">
+    <div class="col mt-1">
+        <p-table [value]="heroes">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Vuela</th>
+                    <th>Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre}}</td>
+                    <td>{{heroe.vuela | vuela | titlecase }}</td>
+                    <td>{{heroe.color}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<div class="col md:col-12">
+    <p-fieldset legend="Mayúsculas" [toggleable]="false">
+        <h2 class="text-layout">Mayusculas Pipe</h2>
+        <div class="grid">
+            <div class="col md:col-4">
+                <p-fieldset legend="Mayúsculas" [toggleable]="true">
+                    <p>'Hola Mundo' | mayusculas</p>
+                    <pre>{{ 'Hola Mundo' | mayusculas }}</pre>
+                </p-fieldset>
+            </div>
+            <div class="col md:col-4">
+                <p-fieldset legend="Mayúsculas con variables" [toggleable]="true">
+                    <p>'Hola Mundo' | mayusculas: false</p>
+                    <pre>{{ 'Hola Mundo' | mayusculas: false }}</pre>
+                </p-fieldset>
+            </div>
+            <div class="col md:col-4">
+                <p-fieldset legend="Toggle" [toggleable]="true">
+                    <p>'Come sandías' | mayusculas: enMayusculas</p>
+                    <pre>{{ 'Come sandías' | mayusculas: enMayusculas }}</pre>
+                    <button pButton type="button"
+                            class="p-button-rounded p-button-help" 
+                            label="Toggle" 
+                            (click)="toggleEnMayusculas();"></button>
+                </p-fieldset>
+            </div>
+        </div>
+    </p-fieldset>
 </div>
