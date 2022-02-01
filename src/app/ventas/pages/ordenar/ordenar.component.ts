@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdenarComponent implements OnInit {
 
+  enMayusculas: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleEnMayusculas() {
+    this.enMayusculas = !this.enMayusculas;
   }
 
 }

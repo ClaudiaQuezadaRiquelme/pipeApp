@@ -1,1 +1,24 @@
-<p>ordenar works!</p>
+<div class="text-layout">
+    <h1>Pipes Personalizados</h1>
+    <p>Pipes creados por nosotros.</p>
+</div>
+<div class="grid">
+    <div class="col md:col-6">
+        <p-fieldset legend="Mayusculas Pipe" [toggleable]="true">
+            <b>Mayúsculas</b>
+            <p>'Hola Mundo' | mayusculas</p>
+            <pre>{{ 'Hola Mundo' | mayusculas }}</pre>
+            <br>
+            <b>Mayúsculas con variables</b>
+            <p>'Hola Mundo' | mayusculas: false</p>
+            <pre>{{ 'Hola Mundo' | mayusculas: false }}</pre>
+            <b>Toggle</b>
+            <p>'Come sandías' | mayusculas: enMayusculas</p>
+            <pre>{{ 'Come sandías' | mayusculas: enMayusculas }}</pre>
+            <button pButton type="button"
+                    class="p-button-rounded p-button-help" 
+                    label="Toggle" 
+                    (click)="toggleEnMayusculas();"></button>
+        </p-fieldset>
+    </div>
+</div>
